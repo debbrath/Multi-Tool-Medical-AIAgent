@@ -117,7 +117,6 @@ pip install -r requirements.txt
     Under Precompiled Binaries for Windows:
     Download sqlite-tools-win32-x86-xxxx.zip (contains sqlite3.exe).
     Extract the zip file to a folder, e.g., C:\sqlite.
-
 - Step 2: Add SQLite to PATH
     Open Start Menu → Environment Variables → Edit the system environment variables.
     Click Environment Variables → System variables → Path → Edit → New.
@@ -125,8 +124,10 @@ pip install -r requirements.txt
     Click OK on all windows.
 
 ```
+```
 ![Screenshot](https://github.com/debbrath/Multi-Tool-Medical-AIAgent/blob/main/image/1.png)
 
+```
 ```  
 - Step 3: Test SQLite Installation
     Open Command Prompt.
