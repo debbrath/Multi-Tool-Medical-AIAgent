@@ -100,11 +100,6 @@ python scripts/csv_to_sqlite.py
 cd agents
 python main_agent.py
 
-
-```
-![Screenshot](https://github.com/debbrath/Sentiment-Analysis/blob/main/images/image2.png)
-
-``` 
 python -m pip install --upgrade pip setuptools wheel --use-pep517
 ```
 ### 6. Install dependencies
@@ -134,9 +129,11 @@ pip install -r requirements.txt
     Type:
     sqlite3 --version
 ```
+```
 ![Screenshot](https://github.com/debbrath/Multi-Tool-Medical-AIAgent/blob/main/image/2.png)
 
-```  
+```
+```
     
 ```
 ```
