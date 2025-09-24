@@ -137,14 +137,17 @@ pip install -r requirements.txt
     
 ```
 ```
-### 7. Train the model (if not already trained)
+### 7. Run locally
 ```bash
-(venv) PS F:\Python\Sentiment-Analysis> python -m app.model_train
-
-```
-### 8. Run locally
-```bash
-(venv) PS F:\Python\Sentiment-Analysis> uvicorn app.main:app –reload
+(.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python scripts/Prepare_db.py
+(.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python scripts/Eda_sqlite.py
+(.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python scripts/Sqlite_langchain_inspect.py
+(.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python scripts/Main_pipeline.py
+(.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python scripts/Sql_query_chain_pipeline.py
+(.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python scripts/Create_sql_agent.py
+(.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python scripts/DB_Specific_Agent_Tools.py
+(.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python langraph.py
+(.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python main.py
 ```
 ![Screenshot](https://github.com/debbrath/Sentiment-Analysis/blob/main/images/image5.png)
 ```
