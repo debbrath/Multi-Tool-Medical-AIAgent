@@ -125,7 +125,7 @@ pip install -r requirements.txt
     Click OK on all windows.
 
     ```
-    ![Screenshot](https://github.com/debbrath/Sentiment-Analysis/blob/main/images/image4.png)
+    ![Screenshot](https://github.com/debbrath/Multi-Tool-Medical-AIAgent/blob/main/image/1.png)
     ```
     ```
 - Step 3: Test SQLite Installation
@@ -134,7 +134,7 @@ pip install -r requirements.txt
     sqlite3 --version
 
     ```
-    ![Screenshot](https://github.com/debbrath/Sentiment-Analysis/blob/main/images/image4.png)
+    ![Screenshot](https://github.com/debbrath/Multi-Tool-Medical-AIAgent/blob/main/image/2.png)
     ```
     
 ```
