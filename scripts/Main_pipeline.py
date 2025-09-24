@@ -1,12 +1,11 @@
-
 """
-LangChain + SQLite + OpenAI (GitHub Models) Pipeline
+LangChain + SQLite + GROQ (GitHub Models) Pipeline
 ===================================================
 This script:
 1. Connects to a SQLite database
 2. Validates tables and runs test queries
 3. Loads environment variables securely
-4. Connects to an LLM (GitHub-hosted OpenAI model)
+4. Connects to an LLM (GitHub-hosted Groq model)
 5. Runs a sample query to validate setup
 """
 
@@ -19,7 +18,7 @@ import pandas as pd
 from pyprojroot import here
 from sqlalchemy import create_engine, inspect
 from langchain_community.utilities import SQLDatabase
-from langchain.chat_models import ChatOpenAI
+from langchain_groq import ChatGroq
 from langchain.schema import HumanMessage
 
 warnings.filterwarnings("ignore")
@@ -27,8 +26,6 @@ warnings.filterwarnings("ignore")
 # -------------------------------
 # 1. SQLite Database Connection
 # -------------------------------
-# db_path = "F://assignment17//src//databases//PatientsDB.db"
-# db_path = str(here("databases")) + "/PatientsDB.db"
 db_path = os.path.join(here(), "databases", "PatientsDB.db")
 print(f"\n✅ Using database: {db_path}")
 
@@ -39,7 +36,6 @@ db = SQLDatabase.from_uri(f"sqlite:///{db_path}")
 print("\n🔹 Database Dialect:", db.dialect)
 print("🔹 Usable Tables:", db.get_usable_table_names())
 
-# Example query (update table name if needed)
 try:
     result = db._execute("SELECT * FROM cancer_patients LIMIT 10;")
     print("\n📊 Sample Data from cancer_patients table:")
@@ -60,16 +56,13 @@ print("\n📋 Tables in database:", inspector.get_table_names())
 for table_name in inspector.get_table_names():
     print(f"\n🔎 Inspecting table: {table_name}")
 
-    # Columns
     columns = inspector.get_columns(table_name)
     for col in columns:
         print(f"   Column: {col['name']} | Type: {col['type']}")
 
-    # Primary Key
     pk = inspector.get_pk_constraint(table_name)
     print("   Primary Key:", pk)
 
-    # Foreign Keys
     fks = inspector.get_foreign_keys(table_name)
     print("   Foreign Keys:", fks)
 
@@ -79,44 +72,24 @@ print("\n✅ Database inspection complete.")
 # -------------------------------
 # 3. Environment Variables Setup
 # -------------------------------
-#token = "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"
-token = "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"
+groq_api_key = os.getenv("GROQ_API_KEY", "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")
 endpoint = "https://models.github.ai/inference"
-model_name = "openai/gpt-4.1-mini" 
+model_name = "openai/gpt-4.1-mini"
 
-if not token:
-    raise ValueError("❌ GITHUB_TOKEN environment variable not set. Please provide a valid token.")
+if not groq_api_key:
+    raise ValueError("❌ GROQ_API_KEY not set. Please provide a valid key.")
 
-print("\n✅ GitHub Token loaded successfully.")
+print("\n✅ GROQ API Key loaded successfully.")
 
 # -------------------------------
-# 4. LLM Setup (GitHub Models via LangChain)
+# 4. LLM Setup (Groq via GitHub Models)
 # -------------------------------
-#llm = ChatOpenAI(
-#    model_name=model_name,
-##    openai_api_key=token,
-#    openai_api_base=endpoint,
-#    temperature=0.5,
-#)
-
-print("Token:", token)
-print("Endpoint:", endpoint)
-print("Model name:", model_name)
-
-try:
-    llm = ChatOpenAI(
-        model=model_name,
-        openai_api_key=token,
-        base_url=endpoint,
-        temperature=0.5,
-    )
-    print("LLM constructed:", llm)
-    response = llm.invoke([HumanMessage(content="Hello")])
-    print("Response:", response)
-except Exception as e:
-    import traceback
-    traceback.print_exc()  
-
+# Initialize Groq LLM
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    groq_api_key=groq_api_key,
+    temperature=0.5,
+)
 
 print("\n✅ Connected to LLM:", model_name)
 
