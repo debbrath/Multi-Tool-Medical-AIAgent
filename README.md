@@ -124,18 +124,18 @@ pip install -r requirements.txt
     Add the path to the folder where sqlite3.exe is located (e.g., C:\sqlite).
     Click OK on all windows.
 
-    ```
-    ![Screenshot](https://github.com/debbrath/Multi-Tool-Medical-AIAgent/blob/main/image/1.png)
-    ```
-    ```
+```
+![Screenshot](https://github.com/debbrath/Multi-Tool-Medical-AIAgent/blob/main/image/1.png)
+
+```  
 - Step 3: Test SQLite Installation
     Open Command Prompt.
     Type:
     sqlite3 --version
+```
+![Screenshot](https://github.com/debbrath/Multi-Tool-Medical-AIAgent/blob/main/image/2.png)
 
-    ```
-    ![Screenshot](https://github.com/debbrath/Multi-Tool-Medical-AIAgent/blob/main/image/2.png)
-    ```
+```  
     
 ```
 ```
