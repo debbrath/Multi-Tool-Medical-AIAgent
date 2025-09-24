@@ -148,9 +148,7 @@ pip install -r requirements.txt
 (.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python scripts/DB_Specific_Agent_Tools.py
 (.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python langraph.py
 (.venv) PS F:\Python\Multi-Tool-Medical-AIAgent> python main.py
-```
-![Screenshot](https://github.com/debbrath/Sentiment-Analysis/blob/main/images/image5.png)
-```
+
 ```
 <br/>
 
